@@ -1,0 +1,17 @@
+#Just Dump Scripts to output
+
+trigger:
+- master
+
+pool:
+  name: 'Bookscan-CI'
+
+steps:
+- task: GitVersion@5  
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)' 
+    artifactName: 'drop' 
+    publishLocation: 'filePath'
+    targetPath: '\\wpwtfsd02\BuildOutput\$(Build.DefinitionName)\$(Build.BuildNumber)'

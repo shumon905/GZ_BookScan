@@ -1,0 +1,57 @@
+parameters:
+- name: environment
+  displayName: Environment
+  type: string  
+  values:
+  - prod
+  - work
+
+- name: frequency
+  displayName: Data Source Frequency
+  type: string  
+  values:
+  - USW
+  - BNW
+  - PTD
+
+- name: dataload
+  displayName: Dataload On
+  type: string 
+  default: 'NA'
+
+name: '$(Date:yyyyMMdd)$(Rev:.r)_${{parameters.environment}}_${{parameters.frequency}} for ${{parameters.dataload}} data load'
+
+trigger: 'none'
+
+pool: 'Bookscan-test'
+
+variables:
+  TestEnvironment: ${{ parameters.environment }}
+
+steps:
+
+- task: replacetokens@3
+  displayName: 'Replace tokens for properties file'
+  inputs:
+    rootDirectory: '$(Agent.BuildDirectory)/s/src/main/java/prop/'
+    targetFiles: 'bookscan_env_release.properties'
+    encoding: 'auto'
+    writeBOM: true
+    actionOnMissing: 'warn'
+    keepToken: false
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'
+    useLegacyPattern: false
+    enableTelemetry: false
+      
+- task: PowerShell@2
+  displayName: 'Update properties file with release version'
+  inputs:
+    targetType: 'inline'
+    script: 'Move-Item -Path $(Agent.BuildDirectory)/s/src/main/java/prop/bookscan_env_release.properties -Destination $(Agent.BuildDirectory)/s/src/main/java/prop/bookscan_env.properties -Force'
+      
+- task: Maven@3
+  displayName: 'Run Data Quality Tests'
+  inputs:
+    mavenPomFile: '$(Agent.BuildDirectory)/s/pom.xml'
+    goals: '-DfailIfNoTests=false -Dtest=TC_DataValidation_${{ parameters.frequency }} test' 

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="BookscanUITest" preserve-order="true"  parallel="false">
+    <test name = "Bookscan Regression UI" preserve-order="true"  parallel="false">
+        <classes>
+
+            <class name="Test_Sanity_Bookscan.TC_Sanity">
+                <methods>
+
+                    <include name="UI_Sanity_LandingPage_1_CheckVersion"/>
+                    <include name="UI_Sanity_Login_2_SuccessfullLogin"/>
+                    <include name="UI_Sanity_BasicSearch_3_getResultSearchAll"/>
+                    <include name="UI_Sanity_AdvanceSearch_4_Author"/>
+                    <include name="UI_Sanity_Data_5_CheckDataIntegrity"/>
+                    <include name="UI_Sanity_Bestseller_6_CreateBSL"/>
+                    <include name="UI_Sanity_Collection_7_CreateCollection"/>
+                    <include name="UI_Sanity_BasicSearch_8_CheckSTTab_SalesAndRankHistory"/>
+                    <include name="UI_Sanity_BasicSearch_9_CheckSTTab_Metadata"/>
+                    <include name="UI_Sanity_BasicSearch_10_CheckSTTab_AuthorHistory"/>
+                    <include name="UI_Sanity_BasicSearch_11_CheckSTTab_RegionalSales"/>
+                    <include name="UI_Sanity_LandingPage_12_NavigateToHelpCenterScreen"/>
+
+                </methods>
+            </class>
+
+            <class name="Test_UI_Bookscan.TC_Login">
+                <methods>
+
+                    <include name="UI_REG_Login_1_CheckLoginElements"/>
+                    <include name="UI_REG_Login_2_SuccessfullLogin"/>
+                    <include name="UI_REG_Login_3_WrongUserID"/>
+                    <include name="UI_REG_Login_4_WrongPassword"/>
+                    <include name="UI_REG_Login_5_BlankPassword"/>
+                    <include name="UI_REG_Login_6_BlankUserID"/>
+                    <include name="UI_REG_Login_7_Impersonate"/>
+                    <include name="UI_REG_Login_8_NoProAccess"/>
+
+                </methods>
+
+            </class>
+
+
+            <class name="Test_UI_Bookscan.TC_AdvanceSearch">
+
+                <methods>
+                    <include name="UI_REG_AdvanceSearch_1_CheckPoints"/>
+                    <include name="UI_REG_AdvanceSearch_2_Author"/>
+                    <include name="UI_REG_AdvanceSearch_3_Supercategory"/>
+                    <include name="UI_REG_AdvanceSearch_4_Subcategory"/>
+                    <include name="UI_REG_AdvanceSearch_5_Publisher"/>
+                    <include name="UI_REG_AdvanceSearch_6_TitleKeyword"/>
+                    <include name="UI_REG_AdvanceSearch_7_BISAC1"/>
+                    <include name="UI_REG_AdvanceSearch_8_BISAC2"/>
+                    <include name="UI_REG_AdvanceSearch_9_PublicationDateRange"/>
+                    <include name="UI_REG_AdvanceSearch_10_UserDefinedSalesDateRange"/>
+                    <include name="UI_REG_AdvanceSearch_11_PriceRange"/>
+                    <include name="UI_REG_AdvanceSearch_12_RTDRange"/>
+                    <include name="UI_REG_AdvanceSearch_14_AllFilters"/>
+                    <include name="UI_REG_AdvanceSearch_15_ExportAdvanceSearch"/>
+
+                </methods>
+
+            </class>
+
+            <class name="Test_UI_Bookscan.TC_BasicSearch">
+                <methods>
+                    <include name="UI_REG_BasicSearch_1_checkpoints"/>
+                    <include name="UI_REG_BasicSearch_2_getResultSearchAll"/>
+                    <include name="UI_REG_BasicSearch_3_getResultAuthor"/>
+                    <include name="UI_REG_BasicSearch_4_getResultTitle"/>
+                    <include name="UI_REG_BasicSearch_5_getResultISBN"/>
+                    <include name="UI_REG_BasicSearch_6_MultiISBNBasicSearch"/>
+                    <include name="UI_REG_BasicSearch_7_ExportBasicSearch"/>
+                    <include name="UI_REG_BasicSearch_8_CheckTableHeaders"/>
+                    <include name="UI_REG_BasicSearch_9_CheckSTTab_SalesAndRankHistory"/>
+                    <include name="UI_REG_BasicSearch_10_CheckSTTab_Metadata"/>
+                    <include name="UI_REG_BasicSearch_11_CheckSTTab_AuthorHistory"/>
+                    <include name="UI_REG_BasicSearch_12_CheckSTTab_RegionalSales"/>
+                    <include name="UI_REG_BasicSearch_13_CheckpointSalesAndRank_Graph"/>
+                    <include name="UI_REG_BasicSearch_14_SaledRankGraph_dropdownSales"/>
+                    <include name="UI_REG_BasicSearch_15_SaledRankGraph_dropdownRanks"/>
+                </methods>
+
+            </class>
+
+
+            <class name="Test_UI_Bookscan.TC_LandingPage">
+                <methods>
+                    <include name="UI_REG_LandingPage_1_CheckLandingPageElements"/>
+                    <include name="UI_REG_LandingPage_2_CheckLogout"/>
+                    <include name="UI_REG_LandingPage_3_CheckUserDisplayName"/>
+                    <include name="UI_REG_LandingPage_4_CheckDataSourceAccess"/>
+                    <include name="UI_REG_LandingPage_5_NavigateToBestsellerScreen"/>
+                    <include name="UI_REG_LandingPage_6_NavigateToCollectionScreen"/>
+                    <include name="UI_REG_LandingPage_7_NavigateToHelpCenterScreen"/>
+                </methods>
+
+            </class>
+
+            <class name="Test_UI_Bookscan.TC_Login">
+                <methods>
+                    <include name="UI_REG_Login_1_CheckLoginElements"/>
+                    <include name="UI_REG_Login_2_SuccessfullLogin"/>
+                    <include name="UI_REG_Login_3_WrongUserID"/>
+                    <include name="UI_REG_Login_4_WrongPassword"/>
+                    <include name="UI_REG_Login_5_BlankPassword"/>
+                    <include name="UI_REG_Login_6_BlankUserID"/>
+                    <include name="UI_REG_Login_7_Impersonate"/>
+                    <include name="UI_REG_Login_8_NoProAccess"/>
+                </methods>
+            </class>
+
+            <class name="Test_UI_Bookscan.TC_RegionalSales">
+                <methods>
+                    <include name="UI_REG_RegionalSales_1_CheckDMAList"/>
+                    <include name="UI_REG_RegionalSales_2_CheckNationalList"/>
+                    <include name="UI_REG_RegionalSales_3_SelectDMA"/>
+                    <include name="UI_REG_RegionalSales_4_SelectNational"/>
+                </methods>
+            </class>
+            
+            <class name="Test_UI_Bookscan.TC_COVID">
+                <methods>
+                    <include name="UI_REG_COVID_1_CheckCOVIDDataColor"/>
+                    <include name="UI_REG_COVID_2_NonCOVIDColor_BasicSearch"/>
+                    <include name="UI_REG_COVID_3_COVIDDataColor_SalesRanking"/>
+                    <include name="UI_REG_COVID_4_NonCOVIDDataColor_SalesRanking"/>
+                    <include name="UI_REG_COVID_5_COVIDDataColor_Metadata"/>
+                    <include name="UI_REG_COVID_6_NonCOVIDDataColor_Metadata"/>
+                    <include name="UI_REG_COVID_7_COVIDDataColor_AuthorHistory"/>
+                    <include name="UI_REG_COVID_8_NonCOVIDDataColor_AuthorHistory"/>
+                    <include name="UI_REG_COVID_9_COVIDDataColor_SingleTitle"/>
+                    <include name="UI_REG_COVID_10_NONCOVIDDataColor_SingleTitle"/>
+                    <include name="UI_REG_COVID_11_COVIDToolTipTextCheck"/>
+                </methods>
+            </class>
+
+            <class name="Test_UI_Bookscan.TC_ScaleSet">
+                <methods>
+                    <include name="UI_Sanity_Login_2_SuccessfullLogin"/>
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+
+</suite>
